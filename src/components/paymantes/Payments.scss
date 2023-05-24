@@ -1,0 +1,68 @@
+.payments {
+    width: 100%;
+
+    .title {
+        font-size: 35px;
+    }
+
+    .payment-methods {
+        display: flex;
+        border-radius: 30px;
+        padding: 40px;
+        box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.1);
+
+        .card-methods {
+            width: 50%;
+
+            .card-desc {
+                font-size: 17px;
+                width: 100%;
+            }
+
+            .cards {
+                margin-top: 15px;
+                display: flex;
+                align-items: center;
+                column-gap: 30px;
+
+                .card {
+                    width: 8%;
+                    object-fit: contain;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .cash-methods {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+
+            .cash-desc {
+                font-size: 17px;
+            }
+
+            .cash {
+                margin-top: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                column-gap: 40px;
+                margin-left: 115px;
+
+                .money {
+                    width: 8%;
+                    object-fit: contain;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

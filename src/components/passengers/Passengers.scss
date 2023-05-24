@@ -1,0 +1,81 @@
+.passengers-modal {
+    position: absolute;
+    width: 291%;
+    height: 800%;
+    background-color: rgba(0, 0, 0, 0.363);
+    z-index: 10;
+    top: -200%;
+    left: -29%;
+
+    .passengers--container {
+        z-index: 15;
+        position: absolute;
+        top: 35%;
+        left: 28%;
+        width: 300px;
+        height: 230px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        padding: 20px;
+
+        .dest-head {
+            display: flex;
+            margin-bottom: 25px;
+            align-items: center;
+
+            .x {
+                position: absolute;
+                right: 5%;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .each {
+            display: flex;
+            margin-bottom: 40px;
+
+            .desc {
+                h5 {
+                    margin: 0;
+                }
+            }
+
+            .plusOrLess {
+                display: flex;
+                position: absolute;
+                right: 5%;
+                border-radius: 10px;
+                justify-content: center;
+                border: 1px solid gray;
+                width: 150px;
+                height: 30px;
+
+                .amount {
+                    width: 50px;
+                    margin: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-left: 1px solid gray;
+                    border-right: 1px solid gray;
+                }
+
+                button {
+                    width: 50px;
+                    height: 30px;
+                    border: none;
+                    font-size: 20px;
+                    background-color: transparent;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
