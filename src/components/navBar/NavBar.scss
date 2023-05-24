@@ -1,0 +1,48 @@
+.nav {
+  margin: 20px 40px 0px 40px;
+  display: flex;
+  align-items: center;
+  &__logo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    figure {
+      width: 100px;
+      img {
+        width: 100%;
+        object-fit: cover;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    p {
+      font-weight: 500;
+      &:hover {
+        cursor: pointer;
+        background-color: rgb(158, 36, 123);
+        border-radius: 10px;
+        padding: 6px;
+        text-align: center;
+        color: white;
+      }
+    }
+  }
+  &__languages {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    p {
+      font-weight: 500;
+      &:hover {
+        cursor: pointer;
+        background-color: rgb(158, 36, 123);
+        border-radius: 10px;
+        padding: 6px;
+        text-align: center;
+        color: white;
+      }
+    }
+  }
+}
