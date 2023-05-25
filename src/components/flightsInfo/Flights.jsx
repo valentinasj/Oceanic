@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import backPlane from "../../assets/avion-655x368.jpg";
 import calendarIcon from "../../assets/calendar.svg";
 import planeIcon from "../../assets/plane.svg";
@@ -7,8 +7,11 @@ import "./Flights.scss";
 import { Place } from "../departureDestination/Place";
 import { Passengers } from "../passengers/Passengers";
 import { DatePicker } from "@progress/kendo-react-dateinputs";
-
+import axios from "axios";
 export const Flights = () => {
+    const api =
+        "https://airlabs.co/api/v9/countries?api_key=d3c5223a-f869-4381-acda-ec7a09b086e3";
+
     const [passengersAmount, setPassengersAmount] = useState([
         "0 Adultos",
         "0 Niños",
@@ -23,6 +26,31 @@ export const Flights = () => {
     const [adultos, setAdultos] = useState(0);
     const [niños, setNiños] = useState(0);
     const [bebes, setBebes] = useState(0);
+    const [countries, setcountries] = useState([]);
+    let m = [];
+    useEffect(() => {
+        countriesApi();
+    }, []);
+    const countriesApi = () => {
+        let prevLet = "";
+        axios
+            .get(api)
+            .then((resp) => {
+                let n = 0;
+                while (m.length < 10) {
+                    if (resp.data.response[n].name[0] !== prevLet) {
+                        m.push(resp.data.response[n].name);
+                        prevLet = resp.data.response[n].name[0];
+                    }
+                    n++;
+                }
+                setcountries(m);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        // console.log("This is - m = ", countries);
+    };
     function place(value) {
         setPlaceModal(value);
     }
@@ -79,7 +107,6 @@ export const Flights = () => {
             default:
                 break;
         }
-        // setPassengersAmount(amount);
     }
     const handleChange = (event) => {
         const opcionesFecha = {
@@ -155,14 +182,12 @@ export const Flights = () => {
                     </div>
                     {placeModal !== "" && (
                         <>
-                            {placeModal === "destination" ? (
+                            {placeModal === "destination" && (
                                 <Place
-                                    place={placeModal}
                                     cerrarModal={recibirPlace}
                                     placeS={selectPlace}
+                                    countries={countries}
                                 />
-                            ) : (
-                                <Place place={placeModal} />
                             )}
                         </>
                     )}

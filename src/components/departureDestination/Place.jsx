@@ -1,24 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Place.scss";
 import xIcon from "../../assets/x.svg";
 import searchIcon from "../../assets/search.svg";
-
-export const Place = ({ place, cerrarModal, placeS }) => {
-    let places = [
-        "Paris",
-        "Medellín",
-        "Barcelona",
-        "Oslo",
-        "Berlin",
-        "Moscú",
-        "Zúrich",
-        "Ginebra",
-        "Estocolmo",
-        "Gotemburgo",
-    ];
-    // const [placesFilter, setplacesFilter] = useState([]);
+export const Place = ({ cerrarModal, placeS, countries }) => {
     const [filt, setFilt] = useState("");
     const [filter, setFilter] = useState(false);
+    useEffect(() => {}, []);
     function cerrarModalH() {
         cerrarModal("");
     }
@@ -31,7 +18,7 @@ export const Place = ({ place, cerrarModal, placeS }) => {
         console.log(value.target.value);
         setFilt(value.target.value);
     }
-    const filteredData = places.filter((item) =>
+    const filteredData = countries.filter((item) =>
         item.toLowerCase().includes(filt.toLowerCase())
     );
     return (
@@ -64,7 +51,7 @@ export const Place = ({ place, cerrarModal, placeS }) => {
                         </>
                     ) : (
                         <>
-                            {places.map((place, i) => (
+                            {countries.map((place, i) => (
                                 <button
                                     onClick={() => selectPlace(place)}
                                     className="count-btn"
