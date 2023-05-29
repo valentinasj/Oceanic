@@ -8,6 +8,7 @@ import { Place } from "../departureDestination/Place";
 import { Passengers } from "../passengers/Passengers";
 import { DatePicker } from "@progress/kendo-react-dateinputs";
 import axios from "axios";
+
 export const Flights = () => {
     const api =
         "https://airlabs.co/api/v9/countries?api_key=d3c5223a-f869-4381-acda-ec7a09b086e3";
@@ -20,7 +21,8 @@ export const Flights = () => {
     const [tripeType, setTripeType] = useState("redondo");
     const [placeModal, setPlaceModal] = useState("");
     const [passengersModal, setPassengersModal] = useState(false);
-    const [placeSelect, setPlaceSelect] = useState("");
+    const [destPlaceSelect, setDestPlaceSelect] = useState("");
+    const [origPlaceSelect, setOrigPlaceSelect] = useState("");
     const [outDate, setOutDate] = React.useState("---");
     const [retDate, setRetDate] = React.useState("---");
     const [adultos, setAdultos] = useState(0);
@@ -64,7 +66,16 @@ export const Flights = () => {
         setPlaceModal(place);
     };
     function selectPlace(place) {
-        setPlaceSelect(place);
+        switch (placeModal) {
+            case "destination":
+                setDestPlaceSelect(place);
+                break;
+            case "origin":
+                setOrigPlaceSelect(place);
+                break;
+            default:
+                break;
+        }
     }
     function plusOrLess(passType, amount) {
         switch (passType) {
@@ -161,12 +172,39 @@ export const Flights = () => {
                 </div>
                 <div className="form-inputs">
                     <div className="inp origin">
-                        <h1>Ciudad de México</h1>
-                        <span>Origen</span>
+                        {origPlaceSelect ? (
+                            <h1 className="orig">
+                                Ciudad de {origPlaceSelect}
+                            </h1>
+                        ) : (
+                            <h1 className="lines">---</h1>
+                        )}
+                        <button
+                            name="origin"
+                            onClick={() => place("origin")}
+                            className="butt or"
+                        >
+                            {origPlaceSelect === "---"
+                                ? "Seleccione un origen"
+                                : "Origen"}
+                        </button>
                     </div>
+                    {placeModal !== "" && (
+                        <>
+                            {placeModal === "origin" && (
+                                <Place
+                                    cerrarModal={recibirPlace}
+                                    placeS={selectPlace}
+                                    countries={countries}
+                                />
+                            )}
+                        </>
+                    )}
                     <div className="inp destination">
-                        {placeSelect ? (
-                            <h1 className="destin">Ciudad de {placeSelect}</h1>
+                        {destPlaceSelect ? (
+                            <h1 className="destin">
+                                Ciudad de {destPlaceSelect}
+                            </h1>
                         ) : (
                             <h1 className="lines">---</h1>
                         )}
@@ -175,7 +213,7 @@ export const Flights = () => {
                             onClick={() => place("destination")}
                             className="butt dest"
                         >
-                            {placeSelect === "---"
+                            {destPlaceSelect === "---"
                                 ? "Seleccione un destino"
                                 : "Destino"}
                         </button>
@@ -197,12 +235,14 @@ export const Flights = () => {
                         <p className="date">{outDate}</p>
                         <DatePicker name="out" onChange={handleChange} />
                     </div>
-                    <div className="inp ret">
-                        <span className="title">Regreso</span>
-                        <p className="date">{retDate}</p>
-                        <img className="icon" src={calendarIcon} alt="" />
-                        <DatePicker name="ret" onChange={handleChange} />
-                    </div>
+                    {tripeType !== "sencillo" && (
+                        <div className="inp ret">
+                            <span className="title">Regreso</span>
+                            <p className="date">{retDate}</p>
+                            <img className="icon" src={calendarIcon} alt="" />
+                            <DatePicker name="ret" onChange={handleChange} />
+                        </div>
+                    )}
                     <div className="inp passengers">
                         <span>Pasajeros</span>
                         <button
