@@ -12,7 +12,6 @@ import axios from "axios";
 export const Flights = () => {
     const api =
         "https://airlabs.co/api/v9/countries?api_key=d3c5223a-f869-4381-acda-ec7a09b086e3";
-
     const [passengersAmount, setPassengersAmount] = useState([
         "0 Adultos",
         "0 Niños",
@@ -28,11 +27,38 @@ export const Flights = () => {
     const [adultos, setAdultos] = useState(0);
     const [niños, setNiños] = useState(0);
     const [bebes, setBebes] = useState(0);
-    const [countries, setcountries] = useState([]);
+    const [countries, setCountries] = useState([]);
+    const [code, setCode] = useState("");
+    const [flightForm, setFlightForm] = useState({
+        type: "",
+        origin: "",
+        destination: "",
+        leave: "",
+        return: "",
+        passengers: "",
+        code: "",
+    });
     let m = [];
     useEffect(() => {
-        countriesApi();
-    }, []);
+        if (countries.length === 0) {
+            countriesApi();
+        }
+    });
+    useEffect(() => {
+        console.log("show form", flightForm);
+    }, [flightForm]);
+    const flightData = () => {
+        setFlightForm({
+            ...flightForm,
+            type: tripeType,
+            origin: origPlaceSelect,
+            destination: destPlaceSelect,
+            leave: outDate,
+            return: tripeType !== "sencillo" ? retDate : null,
+            passengers: passengersAmount,
+            code: code.toUpperCase(),
+        });
+    };
     const countriesApi = () => {
         let prevLet = "";
         axios
@@ -46,13 +72,15 @@ export const Flights = () => {
                     }
                     n++;
                 }
-                setcountries(m);
+                setCountries(m);
             })
             .catch((err) => {
                 console.log(err);
             });
-        // console.log("This is - m = ", countries);
     };
+    function codeChange(value) {
+        setCode(value.target.value);
+    }
     function place(value) {
         setPlaceModal(value);
     }
@@ -281,10 +309,16 @@ export const Flights = () => {
                     )}
                     <div className="inp code">
                         <span>¿Tienes un código de promoción?</span>
-                        <input type="text" placeholder="-- -- -- --" />
+                        <input
+                            className="code-inp"
+                            onInput={codeChange}
+                            type="text"
+                            placeholder="-- -- -- --"
+                            maxLength={4}
+                        />
                     </div>
                 </div>
-                <button className="search">
+                <button onClick={() => flightData()} className="search">
                     <img src={planeIcon} alt="" /> Buscar Vuelos
                 </button>
             </div>
