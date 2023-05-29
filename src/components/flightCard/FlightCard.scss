@@ -1,0 +1,128 @@
+.containerDepartureFlight {
+  margin-bottom: 20px;
+  &__date {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  &__travel {
+    font-size: 13px;
+    color: gray;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+}
+.departureFlight {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  &__title {
+    font-size: 25px;
+    font-weight: bolder;
+    margin-bottom: 1rem;
+  }
+  &__changeFlight {
+    height: fit-content;
+    padding: 10px 25px;
+    border: 2px solid rgb(158, 36, 123);
+    border-radius: 20px;
+    background-color: transparent;
+    font-size: 13px;
+    color: rgb(158, 36, 123);
+    font-weight: 700;
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(158, 36, 123);
+      color: white;
+      transition: all 0.3s ease;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.itineraries {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: space-between;
+  background-color: white;
+  padding: 30px 20px 30px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+  &__hourDeparture,
+  &__hourArrival {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  &__infoExtra {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    p {
+      font-size: 13px;
+      color: gray;
+      font-weight: 500;
+    }
+    figure {
+      width: 70px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.selectionTitle {
+  margin-bottom: 20px;
+}
+
+.baggages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  background-color: white;
+  border: 1px solid lightgray;
+  padding: 5px 20px;
+  border-radius: 5px;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+  p {
+    font-size: 13px;
+    color: gray;
+    font-weight: 500;
+    text-align: center;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  h4 {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.baggages--active {
+  background-color: rgb(158, 36, 123);
+  p {
+    color: white;
+  }
+  h4 {
+    color: white;
+  }
+  figure {
+    img {
+      filter: invert(1);
+    }
+  }
+}
