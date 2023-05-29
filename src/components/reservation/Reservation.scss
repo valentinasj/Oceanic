@@ -1,0 +1,110 @@
+.reservation {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  &__selectSeats {
+    height: fit-content;
+    padding: 10px 40px;
+    border: 2px solid rgb(158, 36, 123);
+    background-color: rgb(158, 36, 123);
+    border-radius: 20px;
+    font-size: 13px;
+    color: white;
+    font-weight: 700;
+    align-self: center;
+    cursor: pointer;
+    &:hover {
+      background-color: white;
+      color: rgb(158, 36, 123);
+      transition: all 0.3s ease;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.schedule {
+  width: 280px;
+  background-color: white;
+  padding: 10px;
+  &__passengers {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    p {
+      font-size: 13px;
+      color: gray;
+      font-weight: 500;
+    }
+    h6 {
+      font-size: 13px;
+      font-weight: 700;
+    }
+  }
+  &__hours {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    p {
+      font-size: 13px;
+      color: gray;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.departureFlightTitle,
+.returnFlightTitle {
+  font-size: 13px;
+  color: gray;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.departureFlightDestinations,
+.returnFlightDestinations {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.departureFlightDate,
+.returnFlightDate {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.pricesTitle {
+  margin-top: 20px;
+}
+
+.prices {
+  width: 280px;
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 15px;
+  &__values {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    p {
+      font-size: 13px;
+      color: gray;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.totalPriceFlight {
+  font-size: 14px;
+}
+
+.displayNone {
+  display: none;
+}
