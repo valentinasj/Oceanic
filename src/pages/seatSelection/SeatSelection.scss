@@ -1,18 +1,10 @@
-.scheduleFlights {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: rgb(246, 246, 246);
-  margin: 40px 80px;
-  padding: 30px 50px;
-}
-.departureAndReservation {
-  width: 68%;
+.containerReservation {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.reservation__selectSeats {
+.continuePaymentPage {
   height: fit-content;
   padding: 10px 40px;
   border: 2px solid rgb(158, 36, 123);
@@ -29,13 +21,4 @@
     transition: all 0.3s ease;
     transform: scale(1.1);
   }
-}
-
-.displayNone {
-  display: none;
-}
-
-.containerReservation {
-  display: flex;
-  flex-direction: column;
 }

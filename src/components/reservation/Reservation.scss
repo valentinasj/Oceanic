@@ -6,24 +6,6 @@
     font-size: 16px;
     margin-bottom: 8px;
   }
-  &__selectSeats {
-    height: fit-content;
-    padding: 10px 40px;
-    border: 2px solid rgb(158, 36, 123);
-    background-color: rgb(158, 36, 123);
-    border-radius: 20px;
-    font-size: 13px;
-    color: white;
-    font-weight: 700;
-    align-self: center;
-    cursor: pointer;
-    &:hover {
-      background-color: white;
-      color: rgb(158, 36, 123);
-      transition: all 0.3s ease;
-      transform: scale(1.1);
-    }
-  }
 }
 
 .schedule {
@@ -114,8 +96,4 @@
 
 .totalPriceFlight {
   font-size: 14px;
-}
-
-.displayNone {
-  display: none;
 }
