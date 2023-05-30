@@ -99,6 +99,17 @@
       margin-bottom: 5px;
     }
   }
+  &__discount {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    p {
+      font-size: 13px;
+      color: green;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+  }
 }
 
 .totalPriceFlight {

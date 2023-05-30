@@ -5,18 +5,35 @@ import "@progress/kendo-theme-default/dist/all.css";
 import "./AppRouter.scss";
 import { ScheduledFlights } from "../pages/scheduledFlights/ScheduledFlights";
 import { SeatSelection } from "../pages/seatSelection/SeatSelection";
+import { createContext, useState } from "react";
+import { Payment } from "../pages/payment/Payment";
+
+export const flightParamsContext = createContext({});
 
 const AppRouter = () => {
+  const [flightForm, setFlightForm] = useState({
+    type: "",
+    origin: "",
+    destination: "",
+    leave: "",
+    return: "",
+    passengers: "",
+    code: "",
+  });
+
   return (
     <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="home" element={<Home />} />
-          <Route path="vuelosProgramados" element={<ScheduledFlights />} />
-          <Route path="seleccionarAsientos" element={<SeatSelection />} />
-        </Route>
-      </Routes>
+      <flightParamsContext.Provider value={{ flightForm, setFlightForm }}>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="home" element={<Home />} />
+            <Route path="vuelosProgramados" element={<ScheduledFlights />} />
+            <Route path="seleccionarAsientos" element={<SeatSelection />} />
+            <Route path="pagos" element={<Payment />} />
+          </Route>
+        </Routes>
+      </flightParamsContext.Provider>
     </BrowserRouter>
   );
 };

@@ -1,91 +1,91 @@
 .place-modal {
+  position: absolute;
+  width: 291%;
+  height: 800%;
+  background-color: rgba(0, 0, 0, 0.363);
+  z-index: 10;
+  top: -200%;
+  left: -29%;
+
+  .place--container {
+    z-index: 15;
     position: absolute;
-    width: 291%;
-    height: 800%;
-    background-color: rgba(0, 0, 0, 0.363);
-    z-index: 10;
-    top: -200%;
-    left: -29%;
+    top: 25%;
+    left: 28%;
+    width: 300px;
+    height: 350px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 20px;
 
-    .place--container {
-        z-index: 15;
+    .dest-head {
+      display: flex;
+      margin-bottom: 15px;
+      align-items: center;
+
+      .x {
         position: absolute;
-        top: 25%;
-        left: 28%;
-        width: 300px;
-        height: 350px;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        border-radius: 15px;
-        padding: 20px;
+        right: 5%;
 
-        .dest-head {
-            display: flex;
-            margin-bottom: 15px;
-            align-items: center;
-
-            .x {
-                position: absolute;
-                right: 5%;
-
-                &:hover {
-                    cursor: pointer;
-                }
-            }
-
-            h1 {
-                font-size: 20px;
-                margin: 0;
-            }
+        &:hover {
+          cursor: pointer;
         }
+      }
 
-        .search-inp {
-            width: 98%;
-            height: 40px;
-            position: relative;
-            margin-bottom: 3px;
-
-            .search-ic {
-                position: absolute;
-                top: 50%;
-                left: 3%;
-                transform: translateY(-50%);
-            }
-
-            input {
-                width: 100%;
-                height: 100%;
-                border: 1px solid gray;
-                border-radius: 5px;
-                padding-left: 12%;
-                box-sizing: border-box;
-
-                &:focus-visible {
-                    outline: none;
-                }
-            }
-        }
-
-        .countries {
-            width: 100%;
-            height: 76%;
-            overflow: auto;
-
-            .count-btn {
-                width: 100%;
-                height: 40px;
-                display: flex;
-                justify-content: start;
-                align-items: center;
-                border: 1px solid gray;
-                background-color: transparent;
-                margin-bottom: -1px;
-
-                &:hover {
-                    cursor: pointer;
-                    background-color: rgba(128, 128, 128, 0.1);
-                }
-            }
-        }
+      h1 {
+        font-size: 20px;
+        margin: 0;
+      }
     }
+
+    .search-inp {
+      width: 98%;
+      height: 40px;
+      position: relative;
+      margin-bottom: 3px;
+
+      .search-ic {
+        position: absolute;
+        top: 50%;
+        left: 3%;
+        transform: translateY(-50%);
+      }
+
+      input {
+        width: 100%;
+        height: 100%;
+        border: 1px solid gray;
+        border-radius: 5px;
+        padding-left: 12%;
+        box-sizing: border-box;
+
+        &:focus-visible {
+          outline: none;
+        }
+      }
+    }
+
+    .countries {
+      width: 100%;
+      height: 76%;
+      overflow: auto;
+
+      .count-btn {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border: 1px solid gray;
+        background-color: transparent;
+        margin-bottom: -1px;
+
+        &:hover {
+          cursor: pointer;
+          background-color: rgba(128, 128, 128, 0.1);
+        }
+      }
+    }
+  }
 }

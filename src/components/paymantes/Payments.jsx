@@ -11,33 +11,33 @@ import walmart from "../../assets/Walmart.webp";
 import farmacias from "../../assets/farmacias.png";
 
 export const Payments = () => {
-    let cards = [amex, payPal, invex, master, visa];
-    let cash = [oxxo, sevenEleven, walmart, farmacias];
-    return (
-        <div className="payments">
-            <h1 className="title">Pago seguro</h1>
-            <div className="payment-methods">
-                <div className="card-methods">
-                    <span className="card-desc">
-                        Tarjeta de crédito, tarjeta de débito y pago electrónico
-                    </span>
-                    <div className="cards">
-                        {cards.map((card, i) => (
-                            <img className="card" src={card} alt="" />
-                        ))}
-                    </div>
-                </div>
-                <div className="cash-methods">
-                    <span className="cash-desc">
-                        Efectivo en cualquiera de las sucursales participantes
-                    </span>
-                    <div className="cash">
-                        {cash.map((money, i) => (
-                            <img className="money" src={money} alt="" />
-                        ))}
-                    </div>
-                </div>
-            </div>
+  let cards = [amex, payPal, invex, master, visa];
+  let cash = [oxxo, sevenEleven, walmart, farmacias];
+  return (
+    <div className="payments">
+      <h1 className="title">Pago seguro</h1>
+      <div className="payment-methods">
+        <div className="card-methods">
+          <span className="card-desc">
+            Tarjeta de crédito, tarjeta de débito y pago electrónico
+          </span>
+          <div className="cards">
+            {cards.map((card, i) => (
+              <img key={i} className="card" src={card} alt="" />
+            ))}
+          </div>
         </div>
-    );
+        <div className="cash-methods">
+          <span className="cash-desc">
+            Efectivo en cualquiera de las sucursales participantes
+          </span>
+          <div className="cash">
+            {cash.map((money, i) => (
+              <img key={i} className="money" src={money} alt="" />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };

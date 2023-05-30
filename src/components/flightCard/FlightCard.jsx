@@ -100,7 +100,7 @@ export const FlightCard = ({ infoFlight }) => {
   return (
     <div className="containerDepartureFlight">
       <div className="departureFlight">
-        <h1 className="departureFlight__title">Vuelo Salida</h1>
+        <h1 className="departureFlight__title">{`Vuelo ${infoFlight.tipoVuelo}`}</h1>
         <button className="departureFlight__changeFlight" onClick={handleBack}>
           Cambiar vuelo
         </button>
@@ -112,7 +112,7 @@ export const FlightCard = ({ infoFlight }) => {
         <div>
           {datesDeparture.length ? (
             datesDeparture
-              .find((date) => date.fechaSalida === "2017-05-01")
+              .find((date) => date.fechaSalida === infoFlight.date)
               .itinerarios.map((itinerario) => {
                 return (
                   <div key={itinerario.id} className="itineraries">

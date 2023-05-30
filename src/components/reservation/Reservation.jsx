@@ -2,12 +2,17 @@ import React, { useContext } from "react";
 import "./Reservation.scss";
 import { useNavigate } from "react-router-dom";
 import { paramsContext } from "../../pages/scheduledFlights/ScheduledFlights";
+import { flightParamsContext } from "../../routes/AppRouter";
 
-export const Reservation = () => {
+export const Reservation = ({ infoFlightDeparture, infoFlightArrival }) => {
   const navigate = useNavigate();
 
   const { selectionBaggages, priceBaggagesSelected, hoursFlightDeparture } =
     useContext(paramsContext);
+
+  const { flightForm } = useContext(flightParamsContext);
+
+  console.log(flightForm);
 
   const handleContinue = () => {
     navigate("/seleccionarAsientos");
@@ -23,7 +28,15 @@ export const Reservation = () => {
 
   const addTotal = addPrices();
 
-  const cupon = "1234";
+  const cupon = flightForm.code;
+
+  const pasajeros = flightForm.passengers.join(", ");
+
+  const initialNameDeparture = flightForm.origin.substring(0, 3).toUpperCase();
+
+  const initialNameArrival = flightForm.destination
+    .substring(0, 3)
+    .toUpperCase();
 
   const aplicarDescuento = (cupon) => {
     if (cupon === "1234") {
@@ -49,10 +62,14 @@ export const Reservation = () => {
       <section className="schedule">
         <div className="schedule__passengers">
           <p>Pasajeros</p>
-          <h6>1 Adulto</h6>
+          <h6>{pasajeros}</h6>
         </div>
-        <p className="departureFlightTitle">Vuelo de salida</p>
-        <h4 className="departureFlightDestinations">MEX __ CUL</h4>
+        <p className="departureFlightTitle">
+          Vuelo de {infoFlightDeparture.tipoVuelo}
+        </p>
+        <h4 className="departureFlightDestinations">
+          {initialNameDeparture} - {initialNameArrival}
+        </h4>
         <div className="schedule__hours">
           {Object.keys(hoursFlightDeparture).length === 2 ? (
             <>
@@ -63,9 +80,13 @@ export const Reservation = () => {
             <p>Seleccionar Horario</p>
           )}
         </div>
-        <h6 className="departureFlightDate">Martes, 30 de noviembre, 2021</h6>
-        <p className="returnFlightTitle">Vuelo de regreso</p>
-        <h4 className="returnFlightDestinations">CUL __ MEX</h4>
+        <h6 className="departureFlightDate">{infoFlightDeparture.date}</h6>
+        <p className="returnFlightTitle">
+          Vuelo de {infoFlightArrival.tipoVuelo}
+        </p>
+        <h4 className="returnFlightDestinations">
+          {initialNameArrival} - {initialNameDeparture}
+        </h4>
         <div className="schedule__hours">
           {Object.keys(hoursFlightDeparture).length === 2 ? (
             <>
@@ -76,7 +97,7 @@ export const Reservation = () => {
             <p>Seleccionar Horario</p>
           )}
         </div>
-        <h6 className="returnFlightDate">Miércoles, 08 de diciembre, 2021</h6>
+        <h6 className="returnFlightDate">{infoFlightArrival.date}</h6>
       </section>
       <h3 className="pricesTitle">Costos de vuelo</h3>
       <section className="prices">
@@ -84,11 +105,11 @@ export const Reservation = () => {
           <p>Tarifa base</p>
           <p>$ {addTotal.toLocaleString("es-CO")} COP</p>
         </div>
-        <div className="prices__values">
+        <div className="prices__discount">
           <p>Descuento promocional</p>
           <p>$ {discount.toLocaleString("es-CO")} COP</p>
         </div>
-        <div className="prices__values">
+        <div className="prices__discount">
           <p>Descuento promocional 2</p>
           <p>$ {discount2.toLocaleString("es-CO")} COP</p>
         </div>
