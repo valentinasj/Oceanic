@@ -4,17 +4,11 @@ import { FlightCard } from "../../components/flightCard/FlightCard";
 import { Reservation } from "../../components/reservation/Reservation";
 import { flightParamsContext } from "../../routes/AppRouter";
 import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
 
 export const ScheduledFlights = () => {
   const navigate = useNavigate();
 
-  const {
-    flightForm,
-    selectionBaggages,
-    priceBaggagesSelected,
-    hoursFlightDeparture,
-  } = useContext(flightParamsContext);
+  const { flightForm, selectionBaggages } = useContext(flightParamsContext);
 
   const infoDeparture = {
     date: flightForm.leave,
@@ -32,19 +26,7 @@ export const ScheduledFlights = () => {
   };
 
   const handleContinue = () => {
-    Swal.fire("Good job!", "Vamos a seleccionar asientos.!", "success").then(
-      () => {
-        sessionStorage.setItem(
-          "priceBaggagesSelected",
-          JSON.stringify(priceBaggagesSelected)
-        );
-        sessionStorage.setItem(
-          "hoursFlightDeparture",
-          JSON.stringify(hoursFlightDeparture)
-        );
-        navigate("/seleccionarAsientos");
-      }
-    );
+    navigate("/seleccionarAsientos");
   };
 
   return (
