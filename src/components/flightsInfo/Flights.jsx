@@ -10,6 +10,7 @@ import { DatePicker } from "@progress/kendo-react-dateinputs";
 import axios from "axios";
 import { flightParamsContext } from "../../routes/AppRouter";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export const Flights = () => {
   const api =
@@ -47,7 +48,6 @@ export const Flights = () => {
   }, [flightForm]); */
   const flightData = () => {
     setFlightForm({
-      ...flightForm,
       type: tripeType,
       origin: origPlaceSelect,
       destination: destPlaceSelect,
@@ -56,6 +56,14 @@ export const Flights = () => {
       passengers: passengersAmount,
       code: code.toUpperCase(),
     });
+/*     Swal.fire(
+      "Good job!",
+      "Vamos a seleccionar el horario y el tipo de equipaje.!",
+      "success"
+    ).then(() => {
+      sessionStorage.setItem("flightForm", JSON.stringify(flightForm));
+      navigate("/vuelosProgramados");
+    }); */
     navigate("/vuelosProgramados");
   };
   const countriesApi = () => {
