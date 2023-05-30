@@ -3,6 +3,7 @@ import { Reservation } from "../../components/reservation/Reservation";
 import { flightParamsContext } from "../../routes/AppRouter";
 import { useNavigate } from "react-router-dom";
 import "./SeatSelection.scss";
+import Swal from "sweetalert2";
 
 export const SeatSelection = () => {
   const navigate = useNavigate();
@@ -20,7 +21,13 @@ export const SeatSelection = () => {
   };
 
   const handleContinue = () => {
-    navigate("/pagos");
+    Swal.fire(
+      "Good job!",
+      "Muy bien, ahora vamos a la sección de pagos!",
+      "success"
+    ).then(() => {
+      navigate("/pagos");
+    });
   };
 
   return (

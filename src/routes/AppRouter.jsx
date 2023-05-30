@@ -5,7 +5,7 @@ import "@progress/kendo-theme-default/dist/all.css";
 import "./AppRouter.scss";
 import { ScheduledFlights } from "../pages/scheduledFlights/ScheduledFlights";
 import { SeatSelection } from "../pages/seatSelection/SeatSelection";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { Payment } from "../pages/payment/Payment";
 
 export const flightParamsContext = createContext({});
@@ -21,9 +21,37 @@ const AppRouter = () => {
     code: "",
   });
 
+  const getFlightFromSessionStorage = () => {
+    const flightFormFromSessionStorage = sessionStorage.getItem("flightForm")
+      ? JSON.parse(sessionStorage.getItem("flightForm"))
+      : {};
+    setFlightForm({ ...flightFormFromSessionStorage });
+
+    const priceBaggagesSelectedFromSessionStorage = sessionStorage.getItem(
+      "priceBaggagesSelected"
+    )
+      ? JSON.parse(sessionStorage.getItem("priceBaggagesSelected"))
+      : [];
+    setPriceBaggagesSelected(priceBaggagesSelectedFromSessionStorage);
+
+    const hoursFlightDepartureFromSessionStorage = sessionStorage.getItem(
+      "hoursFlightDeparture"
+    )
+      ? JSON.parse(sessionStorage.getItem("hoursFlightDeparture"))
+      : {};
+
+    sethoursFlightDeparture({
+      ...hoursFlightDepartureFromSessionStorage,
+    });
+  };
+
   const [selectionBaggages, setSelectionBaggages] = useState([]);
   const [priceBaggagesSelected, setPriceBaggagesSelected] = useState([]);
   const [hoursFlightDeparture, sethoursFlightDeparture] = useState({});
+
+  useEffect(() => {
+    getFlightFromSessionStorage();
+  }, []);
 
   return (
     <BrowserRouter>
