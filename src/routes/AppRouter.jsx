@@ -21,9 +21,24 @@ const AppRouter = () => {
     code: "",
   });
 
+  const [selectionBaggages, setSelectionBaggages] = useState([]);
+  const [priceBaggagesSelected, setPriceBaggagesSelected] = useState([]);
+  const [hoursFlightDeparture, sethoursFlightDeparture] = useState({});
+
   return (
     <BrowserRouter>
-      <flightParamsContext.Provider value={{ flightForm, setFlightForm }}>
+      <flightParamsContext.Provider
+        value={{
+          flightForm,
+          setFlightForm,
+          selectionBaggages,
+          setSelectionBaggages,
+          priceBaggagesSelected,
+          setPriceBaggagesSelected,
+          hoursFlightDeparture,
+          sethoursFlightDeparture,
+        }}
+      >
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<Home />} />

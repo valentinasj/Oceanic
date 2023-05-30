@@ -1,20 +1,14 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { useContext } from "react";
 import "./ScheduledFlights.scss";
 import { FlightCard } from "../../components/flightCard/FlightCard";
 import { Reservation } from "../../components/reservation/Reservation";
 import { flightParamsContext } from "../../routes/AppRouter";
 import { useNavigate } from "react-router-dom";
 
-export const paramsContext = createContext({});
-
 export const ScheduledFlights = () => {
   const navigate = useNavigate();
-  const [selectionBaggages, setSelectionBaggages] = useState([]);
-  const [priceBaggagesSelected, setPriceBaggagesSelected] = useState([]);
-  const [schedules, setSchedules] = useState([]);
-  const [hoursFlightDeparture, sethoursFlightDeparture] = useState({});
 
-  const { flightForm } = useContext(flightParamsContext);
+  const { flightForm, selectionBaggages } = useContext(flightParamsContext);
 
   const infoDeparture = {
     date: flightForm.leave,
@@ -31,7 +25,9 @@ export const ScheduledFlights = () => {
     navigate("/Home");
   };
 
-  console.log(flightForm);
+  const handleContinue = () => {
+    navigate("/seleccionarAsientos");
+  };
 
   return (
     <div className="scheduleFlights">
@@ -46,48 +42,29 @@ export const ScheduledFlights = () => {
           </button>
         </>
       ) : (
-        <paramsContext.Provider
-          value={{
-            selectionBaggages,
-            setSelectionBaggages,
-            priceBaggagesSelected,
-            setPriceBaggagesSelected,
-            schedules,
-            setSchedules,
-            hoursFlightDeparture,
-            sethoursFlightDeparture,
-          }}
-        >
+        <>
           <div className="departureAndReservation">
             <FlightCard infoFlight={infoDeparture} />
             <FlightCard infoFlight={infoArrival} />
           </div>
-          <Reservation
-            infoFlightDeparture={infoDeparture}
-            infoFlightArrival={infoArrival}
-          />
-        </paramsContext.Provider>
+          <div className="containerReservation">
+            <Reservation
+              infoFlightDeparture={infoDeparture}
+              infoFlightArrival={infoArrival}
+            />
+            <button
+              className={`${
+                selectionBaggages.length === 2
+                  ? "reservation__selectSeats"
+                  : "displayNone"
+              }`}
+              onClick={handleContinue}
+            >
+              Seleccionar asientos
+            </button>
+          </div>
+        </>
       )}
     </div>
-    /*     <div className="scheduleFlights">
-      <paramsContext.Provider
-        value={{
-          selectionBaggages,
-          setSelectionBaggages,
-          priceBaggagesSelected,
-          setPriceBaggagesSelected,
-          schedules,
-          setSchedules,
-          hoursFlightDeparture,
-          sethoursFlightDeparture,
-        }}
-      >
-        <div className="departureAndReservation">
-          <FlightCard infoFlight={infoDeparture} />
-          <FlightCard infoFlight={infoArrival} />
-        </div>
-        <Reservation />
-      </paramsContext.Provider>
-    </div> */
   );
 };
