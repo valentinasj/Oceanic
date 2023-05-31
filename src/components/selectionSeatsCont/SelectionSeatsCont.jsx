@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import Swal from "sweetalert2";
 import { flightParamsContext } from "../../routes/AppRouter";
 import { useNavigate } from "react-router-dom";
@@ -9,8 +9,8 @@ export const SelectionSeatsCont = ({ infoFlight, isDeparture }) => {
   const letters = ["A", "B", "C", "", "D", "E", "F"];
   const numRows = 10;
 
-  const [selectedSeatsDeparture, setSelectedSeatsDeparture] = useState([]);
-  const [selectedSeatsArrival, setSelectedSeatsArrival] = useState([]);
+  /*   const [selectedSeatsDeparture, setSelectedSeatsDeparture] = useState([]);
+  const [selectedSeatsArrival, setSelectedSeatsArrival] = useState([]); */
   /*   const [numberSeats, setNumberSeats] = useState(0); */
 
   const {
@@ -18,13 +18,14 @@ export const SelectionSeatsCont = ({ infoFlight, isDeparture }) => {
     setNumberSeatsDeparture,
     numberSeatsArrival,
     setNumberSeatsArrival,
-  } = useContext(flightParamsContext);
-
-  const {
     flightForm,
     setSelectionBaggages,
     setPriceBaggagesSelected,
     sethoursFlightDeparture,
+    selectedSeatsDeparture,
+    setSelectedSeatsDeparture,
+    selectedSeatsArrival,
+    setSelectedSeatsArrival,
   } = useContext(flightParamsContext);
 
   const numPassengers = flightForm.passengers;

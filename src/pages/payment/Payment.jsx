@@ -5,7 +5,19 @@ import "./Payment.scss";
 import Swal from "sweetalert2";
 
 export const Payment = () => {
-  const { flightForm } = useContext(flightParamsContext);
+  const { flightForm, selectedSeatsDeparture, selectedSeatsArrival } =
+    useContext(flightParamsContext);
+
+  const firstTwoLettersDeparture = selectedSeatsDeparture.map((seat) =>
+    seat.substring(0, 2)
+  );
+
+  const firstTwoLettersArrival = selectedSeatsArrival.map((seat) =>
+    seat.substring(0, 2)
+  );
+
+  const seatsDeparture = firstTwoLettersDeparture.join(", ");
+  const seatsArrival = firstTwoLettersArrival.join(", ");
 
   const infoDeparture = {
     date: flightForm.leave,
@@ -18,10 +30,10 @@ export const Payment = () => {
     tipoVuelo: "Llegada",
   };
 
-  const handleConfirma = () => {
+  const handleConfirm = () => {
     Swal.fire(
       "¡Buen trabajo!",
-      "¡Muy bien, tu proceso de compra es un éxito!",
+      `¡Muy bien, tu proceso de compra es un éxito! Su número de reserva es 123456789. Sú código de vuelo es ABC123. Los asientos comprados en el vuelo de salida fueron: ${seatsDeparture} y en el vuelo de llegada fueron: ${seatsArrival}. `,
       "success"
     );
   };
@@ -70,14 +82,14 @@ export const Payment = () => {
             <label id="cad" htmlFor="csv">
               CSV
             </label>
-            <input id="cad" type="text" placeholder="- - -" />
+            <input id="cad" type="password" placeholder="- - -" />
           </div>
           <div className="each-inp">
             <label htmlFor="cardN">Nombre en la tarjeta</label>
             <input id="cardN" type="text" />
           </div>
         </div>
-        <button className="search" onClick={handleConfirma}>
+        <button className="search" onClick={handleConfirm}>
           Confirmar Compra
         </button>
       </div>

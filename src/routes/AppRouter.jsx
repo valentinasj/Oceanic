@@ -50,6 +50,8 @@ const AppRouter = () => {
   const [hoursFlightDeparture, sethoursFlightDeparture] = useState({});
   const [numberSeatsDeparture, setNumberSeatsDeparture] = useState(0);
   const [numberSeatsArrival, setNumberSeatsArrival] = useState(0);
+    const [selectedSeatsDeparture, setSelectedSeatsDeparture] = useState([]);
+    const [selectedSeatsArrival, setSelectedSeatsArrival] = useState([]);
 
   useEffect(() => {
     getFlightFromSessionStorage();
@@ -71,6 +73,10 @@ const AppRouter = () => {
           setNumberSeatsDeparture,
           numberSeatsArrival,
           setNumberSeatsArrival,
+          selectedSeatsDeparture,
+          setSelectedSeatsDeparture,
+          selectedSeatsArrival,
+          setSelectedSeatsArrival,
         }}
       >
         <Routes>
