@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Oceanic/static/css/main.a0a5897f.css",
-    "main.js": "/Oceanic/static/js/main.5f8318a2.js",
+    "main.js": "/Oceanic/static/js/main.e3b7e3df.js",
     "static/media/7-eleven.png": "/Oceanic/static/media/7-eleven.510d5443d59d29428979.png",
     "static/media/OXXO.png": "/Oceanic/static/media/OXXO.38051bc6d62f3efafaa6.png",
     "static/media/paypal.png": "/Oceanic/static/media/paypal.48905819c57eb45e643f.png",
@@ -20,10 +20,10 @@
     "static/media/search.svg": "/Oceanic/static/media/search.67252a3de15d2a2ae5b97febcb7ca5da.svg",
     "static/media/x.svg": "/Oceanic/static/media/x.08f6774f113a0574e5526b8b57f31cf2.svg",
     "main.a0a5897f.css.map": "/Oceanic/static/css/main.a0a5897f.css.map",
-    "main.5f8318a2.js.map": "/Oceanic/static/js/main.5f8318a2.js.map"
+    "main.e3b7e3df.js.map": "/Oceanic/static/js/main.e3b7e3df.js.map"
   },
   "entrypoints": [
     "static/css/main.a0a5897f.css",
-    "static/js/main.5f8318a2.js"
+    "static/js/main.e3b7e3df.js"
   ]
 }
