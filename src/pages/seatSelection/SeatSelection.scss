@@ -1,3 +1,13 @@
+.main {
+  margin: 40px 80px;
+  padding: 30px 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 140px;
+  background-color: rgb(246, 246, 246);
+}
+
 .containerReservation {
   display: flex;
   flex-direction: column;
@@ -21,4 +31,10 @@
     transition: all 0.3s ease;
     transform: scale(1.1);
   }
+}
+
+.containerSelectionSeats {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }

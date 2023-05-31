@@ -27,7 +27,7 @@ const AppRouter = () => {
       : {};
     setFlightForm({ ...flightFormFromSessionStorage });
 
-    const priceBaggagesSelectedFromSessionStorage = sessionStorage.getItem(
+    /*     const priceBaggagesSelectedFromSessionStorage = sessionStorage.getItem(
       "priceBaggagesSelected"
     )
       ? JSON.parse(sessionStorage.getItem("priceBaggagesSelected"))
@@ -42,12 +42,14 @@ const AppRouter = () => {
 
     sethoursFlightDeparture({
       ...hoursFlightDepartureFromSessionStorage,
-    });
+    }); */
   };
 
   const [selectionBaggages, setSelectionBaggages] = useState([]);
   const [priceBaggagesSelected, setPriceBaggagesSelected] = useState([]);
   const [hoursFlightDeparture, sethoursFlightDeparture] = useState({});
+  const [numberSeatsDeparture, setNumberSeatsDeparture] = useState(0);
+  const [numberSeatsArrival, setNumberSeatsArrival] = useState(0);
 
   useEffect(() => {
     getFlightFromSessionStorage();
@@ -65,6 +67,10 @@ const AppRouter = () => {
           setPriceBaggagesSelected,
           hoursFlightDeparture,
           sethoursFlightDeparture,
+          numberSeatsDeparture,
+          setNumberSeatsDeparture,
+          numberSeatsArrival,
+          setNumberSeatsArrival,
         }}
       >
         <Routes>

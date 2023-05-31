@@ -12,8 +12,11 @@ export const ScheduledFlights = () => {
   const {
     flightForm,
     selectionBaggages,
-    priceBaggagesSelected,
-    hoursFlightDeparture,
+    setSelectionBaggages,
+    setPriceBaggagesSelected,
+    sethoursFlightDeparture,
+    /*     priceBaggagesSelected,
+    hoursFlightDeparture, */
   } = useContext(flightParamsContext);
 
   const infoDeparture = {
@@ -28,6 +31,9 @@ export const ScheduledFlights = () => {
   };
 
   const handleBack = () => {
+    setSelectionBaggages([]);
+    setPriceBaggagesSelected([]);
+    sethoursFlightDeparture({});
     navigate("/Home");
   };
 
@@ -37,14 +43,14 @@ export const ScheduledFlights = () => {
       "Muy bien, ahora vamos a seleccionar los asientos!",
       "success"
     ).then(() => {
-      sessionStorage.setItem(
+      /*       sessionStorage.setItem(
         "priceBaggagesSelected",
         JSON.stringify(priceBaggagesSelected)
       );
       sessionStorage.setItem(
         "hoursFlightDeparture",
         JSON.stringify(hoursFlightDeparture)
-      );
+      ); */
       navigate("/seleccionarAsientos");
     });
   };

@@ -33,7 +33,7 @@ export const Flights = () => {
   const [countries, setCountries] = useState([]);
   const [code, setCode] = useState("");
 
-  const { flightForm, setFlightForm } = useContext(flightParamsContext);
+  const { setFlightForm } = useContext(flightParamsContext);
 
   const navigate = useNavigate();
 
