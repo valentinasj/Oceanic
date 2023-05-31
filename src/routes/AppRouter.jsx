@@ -50,8 +50,8 @@ const AppRouter = () => {
   const [hoursFlightDeparture, sethoursFlightDeparture] = useState({});
   const [numberSeatsDeparture, setNumberSeatsDeparture] = useState(0);
   const [numberSeatsArrival, setNumberSeatsArrival] = useState(0);
-    const [selectedSeatsDeparture, setSelectedSeatsDeparture] = useState([]);
-    const [selectedSeatsArrival, setSelectedSeatsArrival] = useState([]);
+  const [selectedSeatsDeparture, setSelectedSeatsDeparture] = useState([]);
+  const [selectedSeatsArrival, setSelectedSeatsArrival] = useState([]);
 
   useEffect(() => {
     getFlightFromSessionStorage();
@@ -81,11 +81,11 @@ const AppRouter = () => {
       >
         <Routes>
           <Route element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="home" element={<Home />} />
-            <Route path="vuelosProgramados" element={<ScheduledFlights />} />
-            <Route path="seleccionarAsientos" element={<SeatSelection />} />
-            <Route path="pagos" element={<Payment />} />
+            <Route path="/Home" element={<Home />} />
+            <Route path="/Oceanic" element={<Home />} />
+            <Route path="/vuelosProgramados" element={<ScheduledFlights />} />
+            <Route path="/seleccionarAsientos" element={<SeatSelection />} />
+            <Route path="/pagos" element={<Payment />} />
           </Route>
         </Routes>
       </flightParamsContext.Provider>
