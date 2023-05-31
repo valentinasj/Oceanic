@@ -46,7 +46,7 @@ export const Flights = () => {
   /*   useEffect(() => {
     console.log("show form", flightForm);
   }, [flightForm]); */
-  const flightData = () => {
+  const flightData = () => { 
     setFlightForm({
       type: tripeType,
       origin: origPlaceSelect,
