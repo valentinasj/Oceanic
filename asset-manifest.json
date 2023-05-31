@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/Oceanic/static/css/main.a0a5897f.css",
+    "main.js": "/Oceanic/static/js/main.5f8318a2.js",
+    "static/media/7-eleven.png": "/Oceanic/static/media/7-eleven.510d5443d59d29428979.png",
+    "static/media/OXXO.png": "/Oceanic/static/media/OXXO.38051bc6d62f3efafaa6.png",
+    "static/media/paypal.png": "/Oceanic/static/media/paypal.48905819c57eb45e643f.png",
+    "static/media/avion-655x368.jpg": "/Oceanic/static/media/avion-655x368.6888c2bdf4ec661572d5.jpg",
+    "static/media/visa-card.png": "/Oceanic/static/media/visa-card.95c1b1acdd9864bdd0be.png",
+    "static/media/mastercard-card.png": "/Oceanic/static/media/mastercard-card.2571c0b3225e8884284d.png",
+    "static/media/Walmart.webp": "/Oceanic/static/media/Walmart.33d30e6450b7a7c310eb.webp",
+    "static/media/Logo.jpg": "/Oceanic/static/media/Logo.c3ebbfc36cf3e5077f4f.jpg",
+    "static/media/banco-invex.jpg": "/Oceanic/static/media/banco-invex.6564da7ee23a1ce4e59f.jpg",
+    "static/media/amex-card.webp": "/Oceanic/static/media/amex-card.ed87923809e802dd4c76.webp",
+    "static/media/calendar.svg": "/Oceanic/static/media/calendar.0a5b409cf02f1ed5b74bb6e3ae58e3c9.svg",
+    "static/media/briefcase.svg": "/Oceanic/static/media/briefcase.46e9660a4d6738b24dd2544b1345d032.svg",
+    "index.html": "/Oceanic/index.html",
+    "static/media/chevron-down.svg": "/Oceanic/static/media/chevron-down.2ae78e17d40ebac35ce1d2192a0b984c.svg",
+    "static/media/plane.svg": "/Oceanic/static/media/plane.15a17f7867a17c9f064f4100f3cd5a0d.svg",
+    "static/media/search.svg": "/Oceanic/static/media/search.67252a3de15d2a2ae5b97febcb7ca5da.svg",
+    "static/media/x.svg": "/Oceanic/static/media/x.08f6774f113a0574e5526b8b57f31cf2.svg",
+    "main.a0a5897f.css.map": "/Oceanic/static/css/main.a0a5897f.css.map",
+    "main.5f8318a2.js.map": "/Oceanic/static/js/main.5f8318a2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a0a5897f.css",
+    "static/js/main.5f8318a2.js"
+  ]
+}
