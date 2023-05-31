@@ -1,22 +1,10 @@
 import React, { useContext } from "react";
 import "./Reservation.scss";
-import { useNavigate } from "react-router-dom";
-import { paramsContext } from "../../pages/scheduledFlights/ScheduledFlights";
 import { flightParamsContext } from "../../routes/AppRouter";
 
 export const Reservation = ({ infoFlightDeparture, infoFlightArrival }) => {
-  const navigate = useNavigate();
-
-  const { selectionBaggages, priceBaggagesSelected, hoursFlightDeparture } =
-    useContext(paramsContext);
-
-  const { flightForm } = useContext(flightParamsContext);
-
-  console.log(flightForm);
-
-  const handleContinue = () => {
-    navigate("/seleccionarAsientos");
-  };
+  const { flightForm, priceBaggagesSelected, hoursFlightDeparture } =
+    useContext(flightParamsContext);
 
   const addPrices = () => {
     const add = priceBaggagesSelected.reduce(
@@ -128,16 +116,6 @@ export const Reservation = ({ infoFlightDeparture, infoFlightArrival }) => {
           </h6>
         </div>
       </section>
-      <button
-        className={`${
-          selectionBaggages.length === 2
-            ? "reservation__selectSeats"
-            : "displayNone"
-        }`}
-        onClick={handleContinue}
-      >
-        Seleccionar asientos
-      </button>
     </div>
   );
 };

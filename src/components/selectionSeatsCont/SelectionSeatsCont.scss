@@ -1,0 +1,135 @@
+.setSelectionComponent {
+  display: flex;
+  flex-direction: column;
+}
+
+.departureFlight {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  &__title {
+    font-size: 25px;
+    font-weight: bolder;
+    margin-bottom: 1rem;
+  }
+  &__changeFlight {
+    height: fit-content;
+    padding: 10px 25px;
+    border: 2px solid rgb(158, 36, 123);
+    border-radius: 20px;
+    background-color: transparent;
+    font-size: 13px;
+    color: rgb(158, 36, 123);
+    font-weight: 700;
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(158, 36, 123);
+      color: white;
+      transition: all 0.3s ease;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.containerDepartureFlight {
+  margin-bottom: 20px;
+  &__date {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  &__travel {
+    font-size: 13px;
+    color: gray;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+}
+
+.selectionChairs {
+  display: flex;
+  flex-direction: column;
+  &__title {
+    margin-bottom: 20px;
+  }
+  &__exit {
+    align-self: center;
+    font-weight: 700;
+  }
+  &__chairs {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.letersChairs {
+  display: flex;
+  flex-direction: row;
+  gap: 70px;
+  &__container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 5px 0px;
+  &:hover {
+    cursor: default;
+  }
+}
+
+.boxNumber {
+  background-color: white;
+  font-size: 14px;
+  &:hover {
+    cursor: default;
+  }
+}
+
+.box2 {
+  background-color: grey;
+  color: white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border-radius: 5px;
+  margin: 5px 0px;
+}
+
+.standardSeats {
+  align-self: center;
+  font-weight: 700;
+}
+
+.A4,
+.A8,
+.B4,
+.C8,
+.D1,
+.D3,
+.E1,
+.E3,
+.E8 {
+  background-color: white;
+  border: 2px solid rgb(158, 36, 123);
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+}
+
+.seat--active {
+  background-color: rgb(158, 36, 123);
+}

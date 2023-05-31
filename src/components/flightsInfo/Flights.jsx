@@ -10,6 +10,7 @@ import { DatePicker } from "@progress/kendo-react-dateinputs";
 import axios from "axios";
 import { flightParamsContext } from "../../routes/AppRouter";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export const Flights = () => {
   const api =
@@ -32,7 +33,7 @@ export const Flights = () => {
   const [countries, setCountries] = useState([]);
   const [code, setCode] = useState("");
 
-  const { flightForm, setFlightForm } = useContext(flightParamsContext);
+  const { setFlightForm } = useContext(flightParamsContext);
 
   const navigate = useNavigate();
 
@@ -47,16 +48,33 @@ export const Flights = () => {
   }, [flightForm]); */
   const flightData = () => {
     setFlightForm({
-      ...flightForm,
       type: tripeType,
       origin: origPlaceSelect,
       destination: destPlaceSelect,
       leave: outDate,
       return: tripeType !== "sencillo" ? retDate : null,
       passengers: passengersAmount,
-      code: code.toUpperCase(),
+      code: code,
     });
-    navigate("/vuelosProgramados");
+
+    const params = {
+      type: tripeType,
+      origin: origPlaceSelect,
+      destination: destPlaceSelect,
+      leave: outDate,
+      return: tripeType !== "sencillo" ? retDate : null,
+      passengers: passengersAmount,
+      code: code,
+    };
+
+    Swal.fire(
+      "Good job!",
+      "Muy bien, ahora vamos a seleccionar el horario y el tipo de maleta!",
+      "success"
+    ).then(() => {
+      sessionStorage.setItem("flightForm", JSON.stringify(params));
+      navigate("/vuelosProgramados");
+    });
   };
   const countriesApi = () => {
     let prevLet = "";

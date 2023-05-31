@@ -6,7 +6,7 @@ import logoBaggage from "../../assets/briefcase.svg";
 import { useNavigate } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
-import { paramsContext } from "../../pages/scheduledFlights/ScheduledFlights";
+import { flightParamsContext } from "../../routes/AppRouter";
 
 export const FlightCard = ({ infoFlight }) => {
   const navigate = useNavigate();
@@ -18,11 +18,9 @@ export const FlightCard = ({ infoFlight }) => {
     setSelectionBaggages,
     priceBaggagesSelected,
     setPriceBaggagesSelected,
-    schedules,
-    setSchedules,
     hoursFlightDeparture,
     sethoursFlightDeparture,
-  } = useContext(paramsContext);
+  } = useContext(flightParamsContext);
 
   const getDatesDeparture = async () => {
     const DepartureDates = await getDepartureDates();
@@ -64,7 +62,6 @@ export const FlightCard = ({ infoFlight }) => {
 
       if (!selectionBaggages.includes(flightType)) {
         setPriceBaggagesSelected([...priceBaggagesSelected, priceBaggage]);
-        setSchedules([...schedules, infoFlight]);
         setSelectionBaggages([...selectionBaggages, flightType]);
         // Actualizar las horas del nuevo itinerario seleccionado
         sethoursFlightDeparture((prevHours) => ({
