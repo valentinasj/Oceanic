@@ -7,20 +7,19 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: rgb(241, 235, 235);
+        background-color: rgb(228, 228, 228);
         padding: 50px 0px;
         border-radius: 20px;
 
         .form-title {
-            font-weight: normal;
+            font-weight: 700;
             font-size: 25px;
             text-align: center;
             position: relative;
             left: 30%;
             transform: translateX(-50%);
             margin-bottom: 4%;
-            color: #4b4b4b;
-            text-decoration: underline;
+            color: #000000;
         }
 
         .personal-data {
@@ -132,7 +131,7 @@
     .reservation-info {
         position: absolute;
         right: 10%;
-        background-color: rgb(241, 235, 235);
+        background-color: rgb(255, 255, 255);
         padding: 50px 50px;
         border-radius: 20px;
     }
